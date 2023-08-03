@@ -3,6 +3,8 @@ package pro.sky.demobook.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +15,10 @@ public class Book {
 
     private String name;
     private String author;
+
+    @ManyToOne
+    @JoinColumn(name = "reader_id")
+    private Reader reader;
 
     public long getId() {
         return id;
